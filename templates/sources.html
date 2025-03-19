@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Sources - DBnomics</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='favicon.png') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="/" class="logo">
+          <img
+            src="{{ url_for('static', filename='dbnomics.svg') }}"
+            alt="DBnomics Logo"
+            class="logo-img"
+          />
+        </a>
+        <div class="nav-links">
+          <a href="/" class="nav-link btn-nav">
+            <i class="ri-home-line"></i> Home
+          </a>
+          <a href="/dashboard" class="nav-link btn-nav">
+            <i class="ri-dashboard-line"></i> Visualization
+          </a>
+          <a href="/sources" class="nav-link btn-nav active">
+            <i class="ri-information-line"></i> Sources
+          </a>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <article class="article">
+        <h2>Data Sources</h2>
+        <section class="sources-content">
+          <p>All data is sourced from Eurostat via DBnomics:</p>
+          <ul class="sources-list">
+            <li><strong>Inflation rates:</strong> tec00118</li>
+            <li><strong>Electricity prices:</strong> ten00117</li>
+            <li><strong>Gas prices:</strong> ten00118</li>
+            <li>
+              <strong>Energy contribution to inflation:</strong> prc_hicp_inw
+            </li>
+          </ul>
+          <p>
+            Visit
+            <a
+              href="https://db.nomics.world/"
+              target="_blank"
+              class="source-link"
+              >DBnomics</a
+            >
+            for more information.
+          </p>
+          <p class="author">
+            By the students of the Student Association of the Master's program
+            in Money, Banking, Finance, and Insurance at Paris 1
+            Panthéon-Sorbonne
+          </p>
+        </section>
+      </article>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

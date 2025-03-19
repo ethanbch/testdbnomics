@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Economic Dashboard - DBnomics</title>
+    <link
+      rel="stylesheet"
+      href="static/css/style.css"
+    />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="static/favicon.png"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a href="/" class="logo">
+          <img
+            src="static/dbnomics.svg"
+            alt="DBnomics Logo"
+            class="logo-img"
+          />
+        </a>
+        <div class="nav-links">
+          <a href="/" class="nav-link btn-nav">
+            <i class="ri-home-line"></i> Home
+          </a>
+          <a href="/dashboard" class="nav-link btn-nav active">
+            <i class="ri-dashboard-line"></i> Visualization
+          </a>
+          <a href="/sources" class="nav-link btn-nav">
+            <i class="ri-information-line"></i> Sources
+          </a>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <header class="dashboard-header">
+      <div class="container">
+        <h1>Data Visualization</h1>
+        <div class="selector-wrapper">
+          <select id="countrySelector" aria-label="Select a country">
+            <option value="" disabled selected>Choose a country...</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-content">
+      <div class="charts-grid">
+        <div class="chart-container">
+          <div id="inflationChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="contributionChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="electricityChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="gasChart"></div>
+        </div>
+      </div>
+      <div class="dashboard-footer">
+        <p class="author">
+          By the students of the Student Association of the Master's program in
+          Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne
+        </p>
+      </div>
+    </main>
+
+    <script src="static/js/dashboard.js"></script>
+  </body>
+</html>

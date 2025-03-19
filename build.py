@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 
 from nbcontrib import df_contrib
 from nbelec import df_elec
@@ -10,8 +11,26 @@ from notebookir import df_ir
 os.makedirs("docs", exist_ok=True)
 
 # Copier les fichiers statiques
-os.system("cp -r static docs/")
-os.system("cp -r templates/* docs/")
+os.makedirs("docs/static", exist_ok=True)
+shutil.copytree("static", "docs/static", dirs_exist_ok=True)
+
+# Copier les fichiers HTML en les renommant correctement
+shutil.copy("templates/index.html", "docs/index.html")
+shutil.copy("templates/dashboard.html", "docs/dashboard.html")
+shutil.copy("templates/sources.html", "docs/sources.html")
+
+# Modifier les liens dans les fichiers HTML pour qu'ils fonctionnent avec GitHub Pages
+files_to_update = ["docs/index.html", "docs/dashboard.html", "docs/sources.html"]
+for file in files_to_update:
+    with open(file, "r") as f:
+        content = f.read()
+
+    # Remplacer les liens Flask par des liens statiques
+    content = content.replace("{{ url_for('static', filename='", "static/")
+    content = content.replace("') }}", "")
+
+    with open(file, "w") as f:
+        f.write(content)
 
 # Générer le fichier de données JSON
 countries = list(

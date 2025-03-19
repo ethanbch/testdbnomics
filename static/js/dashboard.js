@@ -155,9 +155,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateChartsWithData(country) {
     showLoading();
 
-    fetch(`/api/data/${country}`)
+    // Charger le fichier JSON statique
+    fetch("api/data.json")
       .then((response) => response.json())
-      .then((data) => {
+      .then((allData) => {
+        const data = allData[country];
         // Graphique d'inflation
         const inflationTrace = {
           x: data.inflation.map((d) => d.Years),

@@ -32,6 +32,11 @@ for file in files_to_update:
     with open(file, "w") as f:
         f.write(content)
 
+# Copier les fichiers HTML
+shutil.copy("docs/index.html", "docs/index.html")
+shutil.copy("docs/dashboard.html", "docs/dashboard.html")
+shutil.copy("docs/sources.html", "docs/sources.html")
+
 # Générer le fichier de données JSON
 countries = list(
     set(

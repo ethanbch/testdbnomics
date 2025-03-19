@@ -7,7 +7,7 @@ from nbelec import df_elec
 from nbgas import df_gas
 from notebookir import df_ir
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
+app = Flask(__name__, static_folder="static", template_folder="docs")
 CORS(app)
 
 
